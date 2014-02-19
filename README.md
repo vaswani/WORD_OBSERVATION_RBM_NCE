@@ -48,7 +48,6 @@ USAGE
   --words_file -> The vocabulary, one word per line where line 'i' is the word with integer representation 'i-1' (Assuming that lines start 
                   at index 1)
   --unigram_probs_file -> The unigram probabilities of the words. Each line has two tab separate entries: <integer_id_of_word>\t<unigram_probability_of_word>
-  --
   In prep_scripts/generateTrainingData.py can generate the data for you. 
 
 2. Running the RBM
