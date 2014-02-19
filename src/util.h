@@ -190,7 +190,7 @@ void readUnigramProbs(param rbmParam,vector<double> & unigram_probs)
   UNIGRAMIN.open(rbmParam.unigram_probs_file.c_str());
   if (! UNIGRAMIN)
   {
-    cerr << "Error : can't read unigram probs from" << rbmParam.unigram_probs_file<< endl;
+    cerr << "Error : can't read unigram probs from " << rbmParam.unigram_probs_file<< endl;
     exit(-1);
   }
 

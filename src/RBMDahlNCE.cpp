@@ -58,7 +58,7 @@ int main(int argc, char** argv)
       ValueArg<string> words_file("", "words_file", "words file. Default:words" , true, "string", "words", cmd);
       ValueArg<string> validation_file("", "validation_file", "validation file. Default:validation" , true, "validation", "string", cmd);
       ValueArg<string> unigram_probs_file("", "unigram_probs_file", "unigram probs file. Default:unigram_probs" , true, "unigram_probs", "string", cmd);
-      ValueArg<string> embeddings_prefix("", "embeddings_prefix", "embedding prefix for the embeddings. Default:embeddings.cpp.epoch" , false, "embeddings.cpp.epoch", "string", cmd);
+      ValueArg<string> embeddings_prefix("", "embeddings_prefix", "embedding prefix for the embedding file. Default:embeddings.cpp.epoch" , false, "embeddings.cpp.epoch", "string", cmd);
 
       ValueArg<int> ngram_size("", "ngram_size", "The size of ngram that you want to consider. Default:3", false, 3, "int", cmd);
 
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
       ValueArg<int> embedding_dimension("", "embedding_dimension", "The size of the embedding dimension. Default 50", false, 10, "int", cmd);
 
       ValueArg<int> minibatch_size("", "minibatch_size", "The minibatch size. Default: 64", false, 64, "int", cmd);
-      ValueArg<int> validation_minibatch_size("", "validation_minibatch_size", "The validation set minibatch size. Default: 64", false, 64, "int", cmd);
+      //ValueArg<int> validation_minibatch_size("", "validation_minibatch_size", "The validation set minibatch size. Default: 64", true, 64, "int", cmd);
       
       ValueArg<int> num_epochs("", "num_epochs", "The number of epochs. Default:10 ", false, 10, "int", cmd);
 
@@ -102,7 +102,7 @@ int main(int argc, char** argv)
       rbmParam.num_noise_samples = num_noise_samples.getValue();
       rbmParam.embedding_dimension = embedding_dimension.getValue();
       rbmParam.minibatch_size = minibatch_size.getValue();
-      rbmParam.validation_minibatch_size = validation_minibatch_size.getValue();
+      //rbmParam.validation_minibatch_size = validation_minibatch_size.getValue();
       rbmParam.num_epochs= num_epochs.getValue();
       //rbmParam.persistent = persistent.getValue();
       rbmParam.learning_rate = learning_rate.getValue();
@@ -134,7 +134,7 @@ int main(int argc, char** argv)
       cerr << n_vocab.getDescription() << " : " << n_vocab.getValue() << endl;
       cerr << normalization_init.getDescription() << " : " << normalization_init.getValue() << endl;
       cerr << minibatch_size.getDescription() << " : " << minibatch_size.getValue() << endl;
-      cerr << validation_minibatch_size.getDescription() << " : " << minibatch_size.getValue() << endl;
+      //cerr << validation_minibatch_size.getDescription() << " : " << minibatch_size.getValue() << endl;
       cerr << num_epochs.getDescription() << " : " << num_epochs.getValue() << endl;
       //cerr << persistent.getDescription() << " : " << persistent.getValue() << endl;
       cerr << learning_rate.getDescription() << " : " << learning_rate.getValue() << endl;
@@ -303,7 +303,7 @@ int main(int argc, char** argv)
     //double current_learning_rate = rbmParam.learning_rate;
     for (int epoch = 0 ;epoch<rbmParam.num_epochs;epoch++)
     { 
-
+        cerr<<"Epoch "<<epoch<<" learning rate is "<<rbmParam.learning_rate<<endl;
         if (validation_set_size !=0)
         {
             cerr<<"Computing log likelihood on the validation set "<<endl;
