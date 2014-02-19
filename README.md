@@ -50,7 +50,7 @@ USAGE
   --unigram_probs_file -> The unigram probabilities of the words. Each line has two tab separate entries: <integer_id_of_word>\t<unigram_probability_of_word>
   In prep_scripts/generateTrainingData.py can generate the data for you. 
 
-2. Running the RBM
+2. Running the RBM:
   Please look at test/trainEmbeddings.sh for usage
 
 
