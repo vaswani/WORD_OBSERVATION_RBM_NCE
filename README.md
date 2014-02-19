@@ -54,7 +54,9 @@ USAGE
   Please look at test/trainEmbeddings.sh for usage
 
 
-  
+For questions, comments or to report bugs, please contact vaswani@usc.edu,ashish.vaswani@gmail.com
+
+
 
 
 
